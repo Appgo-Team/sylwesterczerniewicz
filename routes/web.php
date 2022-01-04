@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SayhelloController;
+use App\Http\Controllers\guestcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,16 +14,12 @@ use App\Http\Controllers\SayhelloController;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
-Route::get('/guestbook', 'App\Http\Controllers\guestController@addNewGuest');
-Route::post('/save',[
-    'uses' => 'App\Http\Controllers\guestController',
-    'as' => 'guest.save'
-]);
+});*/
 
-
-
+Route::view('guest','guestAdd');
+Route::post('guest', [guestcontroller::class,'save']);
+Route::view('thankyou', 'thankYou' );
 
 
